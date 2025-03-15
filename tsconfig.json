@@ -1,0 +1,17 @@
+{
+  "extends": "astro/tsconfigs/strict",
+  "compilerOptions": {
+    "jsx": "react-jsx",  // Esto es útil si deseas usar JSX en Astro
+    "esModuleInterop": true,  // Asegura que se puedan importar módulos de Node correctamente
+    "moduleResolution": "Node",
+    "baseUrl": ".",
+    "paths": {
+      "@components/*": ["components/*"],
+      "@styles/*": ["styles/*"]
+    }
+  },
+  "include": [".astro/types.d.ts", "**/*", "**/*.astro"],
+  "exclude": ["dist"],
+  
+}
+

@@ -1,0 +1,260 @@
+@import "tailwindcss";
+
+
+@theme {
+  /* Colores base */
+  --color-yellow: hsl(61, 72%, 63%);
+  --color-pink: hsl(311, 38%, 61%);
+  --color-text: #666666;
+  --color-title: #000000;
+  
+
+  /* Variables para el sistema de diseño */
+  --border: 240 5.9% 90%;
+  --input: 240 5.9% 90%;
+  --ring: 240 5.9% 90%;
+  --background: 0 0% 100%;
+  --foreground: 240 10% 3.9%;
+  --primary: 240 5.9% 10%;
+  --primary-foreground: 0 0% 98%;
+  --secondary: 240 4.8% 95.9%;
+  --secondary-foreground: 240 5.9% 10%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 0 0% 98%;
+  --muted: 240 4.8% 95.9%;
+  --muted-foreground: 240 3.8% 46.1%;
+  --accent: 240 4.8% 95.9%;
+  --accent-foreground: 240 5.9% 10%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 240 10% 3.9%;
+  --card: 0 0% 100%;
+  --card-foreground: 240 10% 3.9%;
+
+  /* Gradientes */
+  --color-gradient-start: hsl(311, 38%, 61%);
+  --color-gradient-end: hsl(61, 72%, 63%);
+
+  /* Border radius */
+  --radius: 0.5rem;
+
+  /*  fuentes de texto */
+  --font-primary: "Inter", sans-serif;
+  --font-secondary: "AmericanaBT", serif;
+  --font-bold: "AmericanaBT-Bold", serif;
+  --font-support: "LibreBaskerville", serif;
+
+}
+
+@font-face {
+  font-family: "AmericanaBT-Bold";
+  src: url("/fonts/AmericanaBT-Bold.woff2") format("woff2"),
+    url("/fonts/AmericanaBT-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "AmericanaBT";
+  src: url("/fonts/AmericanaBT-Roman.woff2") format("woff2"),
+    url("/fonts/AmericanaBT-Roman.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/Inter-Regular.woff2") format("woff2"),
+    url("/fonts/Inter-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "LibreBaskerville";
+  src: url("/fonts/LibreBaskerville-Regular.woff2") format("woff2"),
+    url("/fonts/LibreBaskerville-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+section {
+  scroll-margin-top: 20px; /* Ajusta este valor según la altura de tu navbar */
+}
+
+
+html,
+body {
+  margin: auto;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+  
+}
+
+
+h1{
+  font-family: "AmericanaBT-Bold", "LibreBaskerville", serif; /* AmericanaBT, si falla usa LibreBaskerville */
+  @apply sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl;
+}
+
+h2{
+font-family: "AmericanaBT", "LibreBaskerville", serif; /* AmericanaBT, si falla usa LibreBaskerville */
+  @apply sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl;
+}
+  h3 {
+  font-family: "AmericanaBT", "LibreBaskerville", serif; /* AmericanaBT, si falla usa LibreBaskerville */
+  @apply text-lg sm:text-xl md:text-2xl lg:text-4xl xl:text-5xl;
+}
+
+
+
+p {
+  font-family: "Inter", sans-serif; /* Usa Inter para texto general */
+  @apply text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl;
+  color: var(--color-text);
+}
+  #leyenda{
+  @apply text-white text-[10px] sm:text-xs md:text-base lg:text-lg xl:text-xl italic;
+
+}
+/* 
+text-sm sm:text-[10px] md:text-lg lg:text-xl
+  */
+button {
+  font-family: "Inter", sans-serif;
+  @apply text-base sm:text-lg md:text-xl; /* No lo hago tan grande en pantallas grandes */
+}
+
+a {
+  font-family: "Inter", sans-serif;
+  @apply text-sm sm:text-base md:text-lg; /* Hereda tamaño de párrafo, pero no exagera */
+}
+
+
+
+
+/*  .quote-gradient {
+  background: linear-gradient(to right, var(--color-pink), var(--color-yellow));
+}  */
+/* #gradientApo{
+style="background: linear-gradient(to right, hsl(311, 38%, 61%), hsl(61, 72%, 63%));"
+} */
+/* Animaciones personalizadas */
+@keyframes accordion-down {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Clases de utilidad personalizadas */
+@layer utilities {
+  .animate-accordion-down {
+    animation: accordion-down 0.2s ease-out;
+  }
+
+  .animate-accordion-up {
+    animation: accordion-up 0.2s ease-out;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+}
+
+//----------------------------------//
+//----------------------------------//
+//----------------------------------//
+//----------------------------------//
+//----------------------------------//
+
+
+
+/* V0 Componentes personalizados */
+@layer components {
+  /* Gradientes */
+  /*  .bg-gradient-color {
+    background: linear-gradient(to right, hsl(311, 38%, 61%), hsl(61, 72%, 63%));
+  } */
+
+  
+/*  no funciona porque tailwind no soporta background-image
+  .text-gradient-color {
+    background-image: linear-gradient(to right, var(--color-pink), var(--color-yellow));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  } */
+transi
+
+  /* Bordes redondeados */
+  .rounded-color-lg {
+    border-radius: var(--radius);
+  }
+
+  .rounded-color-md {
+    border-radius: calc(var(--radius) - 2px);
+  }
+
+  .rounded-color-sm {
+    border-radius: calc(var(--radius) - 4px);
+  }
+}
+
+/* Estilos para el fondo de la página */
+.bg-gradient-page {
+  background-image: linear-gradient(to bottom, hsla(61, 72%, 63%, 0.1), white, hsla(311, 38%, 61%, 0.1));
+}
+
+/* Estilos para el hover de los servicios */
+.service-card-hover {
+  position: relative;
+  overflow: hidden; /* Evita que el pseudo-elemento sobresalga */
+}
+
+.service-card-hover::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 1rem;
+  background-image: linear-gradient(to right, var(--color-pink), var(--color-yellow));
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: -1; /* Para que no tape el contenido */
+}
+
+.service-card-hover:hover::before {
+  opacity: 0.1;
+}
+
+/* Estilos para los indicadores del carrusel */
+.indicator.active {
+  width: 2rem;
+  background-image: linear-gradient(to right, var(--color-pink), var(--color-yellow));
+}
+

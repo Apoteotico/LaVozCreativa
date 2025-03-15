@@ -1,0 +1,154 @@
+---
+const navigation = [
+  { name: "Inicio", href: "#inicio" },
+  { name: "Servicios", href: "#servicios" },
+  { name: "Coach", href: "#coach" },
+  { name: "Historia", href: "#historia" },
+  { name: "FAQs", href: "#faqs" },
+  { name: "Contacto", href: "#contacto" },
+  { name: "Testimonios", href: "#testimonios" },
+];
+
+---
+
+<nav class="fixed w-full z-50 transition-all duration-300" id="navbar">
+  <!--  fixed: Mantiene el navbar fijo en la parte superior.
+        w-full: Ocupar todo el ancho.
+        z-50: Asegura que esté por encima de otros elementos.
+        transition-all duration-300: Suaviza cualquier cambio de estilo en 300ms. -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-14">
+      <!--  flex: Contenedor flexible.
+            items-center: Alinea los elementos verticalmente.
+            justify-between: Espacia los elementos a los extremos.
+            h-20: Altura de 80px. -->
+      <div class="flex-shrink-0"></div> <!-- Contenedor vacío, podría ir el logo aquí -->
+
+      <!-- Menú en desktop -->
+      <div class="hidden md:flex justify-center w-full">
+        <!--  hidden: Oculta en móviles.
+              md:flex: Se muestra como flexbox en pantallas medianas en adelante.
+              justify-center: Centra los elementos.
+              w-full: Usa todo el ancho disponible. -->
+        <div class="flex items-baseline space-x-6">
+          <!-- space-x-6: Espaciado horizontal entre los enlaces -->
+          {
+            navigation.map((item) => (
+              <a
+                href={item.href}
+                class="relative px-3 py-2 text-custom-text hover:text-custom-title transition-colors duration-300 group"
+              >
+                {/*   relative: Permite posicionar elementos hijos.
+                      px-3 py-2: Padding horizontal y vertical.
+                      text-custom-text: Color de texto personalizado.
+                      hover:text-custom-title: Cambia color al pasar el mouse.
+                      transition-colors duration-300: Suaviza cambio de color en 300ms.  */}
+                {item.name}
+                <span class="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-custom transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100" />
+                <!-- Línea inferior que aparece al pasar el mouse -->
+              </a>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- Botón menú móvil -->
+      <div class="md:hidden">
+        <button
+          id="mobile-menu-button"
+          class="inline-flex items-center justify-center p-2 rounded-md text-custom-text hover:text-custom-title focus:outline-none"
+        >
+          <!--  inline-flex: Muestra los íconos en línea.
+                items-center justify-center: Centra los íconos.
+                p-2: Espaciado interno.
+                rounded-md: Bordes redondeados.
+                focus:outline-none: Evita borde azul al hacer clic. -->
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="menu-icon h-6 w-6"
+          >
+            <line x1="4" x2="20" y1="12" y2="12"></line>
+            <line x1="4" x2="20" y1="6" y2="6"></line>
+            <line x1="4" x2="20" y1="18" y2="18"></line>
+          </svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="close-icon h-6 w-6 hidden"
+          >
+            <path d="M18 6 6 18"></path>
+            <path d="m6 6 12 12"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Menú móvil -->
+  <div id="mobile-menu" class="md:hidden hidden transition-all duration-300 ease-in-out">
+    <!--  md:hidden: Oculta en pantallas grandes.
+          hidden: Inicia oculto.
+          transition-all duration-300 ease-in-out: Transición suave. -->
+    <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white/90 backdrop-blur-md">
+      <!--  px-2 pt-2 pb-3: Espaciado interno.
+            space-y-1: Espaciado vertical entre elementos.
+            bg-white/90: Fondo blanco semi-transparente.
+            backdrop-blur-md: Efecto difuminado tipo cristal. -->
+      {
+        navigation.map((item) => (
+          <a
+            href={item.href}
+            class="block px-3 py-2 text-custom-text hover:text-custom-title transition-colors duration-300"
+          >
+            {item.name}
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</nav>
+
+<script>
+  // Controla el fondo del navbar al hacer scroll
+  const navbar = document.getElementById("navbar");
+  const mobileMenuButton = document.getElementById("mobile-menu-button");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const menuIcon = document.querySelector(".menu-icon");
+  const closeIcon = document.querySelector(".close-icon");
+
+  if (navbar) {
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 0) {
+        navbar.classList.add('backdrop-blur-md');
+      } else {
+        navbar.classList.remove('backdrop-blur-md');
+      }
+    });
+  }
+
+  if (mobileMenuButton && mobileMenu && menuIcon && closeIcon) {
+    let isOpen = false;
+
+    mobileMenuButton.addEventListener("click", () => {
+      isOpen = !isOpen;
+      mobileMenu.classList.toggle("hidden", !isOpen);
+      menuIcon.classList.toggle("hidden", isOpen);
+      closeIcon.classList.toggle("hidden", !isOpen);
+    });
+  }
+</script>

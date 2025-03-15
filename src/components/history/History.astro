@@ -1,0 +1,231 @@
+---
+const images = [
+  { src: "/images/1.webp", alt: "Grupo de personas felices en un evento" },
+  { src: "/images/2.webp", alt: "Clase de canto en La Voz Creativa" },
+  { src: "/images/3.webp", alt: "Sesión de coaching vocal con Claudia Inés" },
+  {
+    src: "/images/4.webp",
+    alt: "Participantes disfrutando un taller de expresión",
+  },
+];
+---
+
+<section id="historia" class="py-20 relative overflow-hidden">
+  <!-- Fondos decorativos -->
+  <div
+    class="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-white/80 to-white/0 pointer-events-none"
+  >
+  </div>
+  <div
+    class="absolute -top-40 -left-40 w-96 h-96 rounded-full bg-custom-yellow/10 blur-3xl"
+  >
+  </div>
+  <div
+    class="absolute -bottom-40 -right-40 w-96 h-96 rounded-full bg-custom-pink/10 blur-3xl"
+  >
+  </div>
+
+  <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 relative z-10">
+    <!-- Título centrado -->
+    <h2
+      class="text-4xl font-bold text-center text-custom-title mb-16 relative inline-block mx-auto w-full"
+    >
+      <span class="relative inline-block">
+        Historia
+        <div
+          class="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-custom-pink to-custom-yellow rounded-full"
+        >
+        </div>
+      </span>
+    </h2>
+
+    <!-- Contenedor con flex para alinear elementos en desktop -->
+    <div class="lg:flex lg:items-center lg:justify-between">
+      <!-- Texto de historia alineado a la izquierda -->
+      <div
+        class="bg-white/80 backdrop-blur-sm p-8 rounded-2xl shadow-lg border border-gray-100  w-full lg:w-1/2 lg:mr-8"
+      >
+        <h3
+          class="text-2xl font-bold text-custom-title mb-6 text-center relative inline-block"
+        >
+          <span class="relative">
+            La Voz Creativa
+            <div
+              class="absolute -bottom-2 left-0 w-full h-0.5 rounded-full"
+            >
+            </div>
+          </span>
+        </h3>
+        <p class="text-lg text-custom-text leading-relaxed">
+          Es una Escuela Holística de Expresión la cual surge desde la creencia
+          en el que aprender a expresarse es tanto, o más importante en el
+          desarrollo de un humano como caminar, comer, escribir, leer e ir al
+          baño. Consideramos a la expresión como una necesidad fisiológica
+          vital, ya que es el canal por el que le damos movimiento y salida a
+          las emociones.
+        </p>
+      </div>
+
+      <!-- Carrusel alineado a la derecha -->
+      <div class="relative justify-center w-full lg:w-1/2">
+        <div
+          class="relative rounded-xl p-2 before:absolute before:-inset-2 before:-z-10 before:rounded-xl before:bg-gradient-to-tr before:from-[var(--color-pink)] before:to-[var(--color-yellow)] before:blur-md before:content-['']"
+        >
+          <img
+            id="history-carousel-image"
+            class="relative w-full h-auto rounded-lg shadow-none opacity-90 translate-x-0 saturate-90 duration-700 ease-in-out"
+          />
+        </div>
+
+        <!-- Contador -->
+        <div
+          id="history-carousel-counter"
+          class="absolute bottom-4 right-4 bg-opacity-50 text-pink px-2 py-1 rounded text-ml backdrop-brightness-35"
+        >
+          1 / {images.length}
+        </div>
+
+        <!-- Botón Anterior -->
+        <button
+          id="history-prev-btn"
+          class="absolute left-4 top-1/2 -translate-y-1/2 bg-gray-900/30 text-white p-3 rounded-full hover:bg-gray-900/50 transition-all shadow-lg hidden sm:block"
+        >
+          ❮
+        </button>
+
+        <!-- Botón Siguiente -->
+        <button
+          id="history-next-btn"
+          class="absolute right-4 top-1/2 -translate-y-1/2 bg-gray-900/30 text-white p-3 rounded-full hover:bg-gray-900/50 transition-all shadow-lg hidden sm:block"
+        >
+          ❯
+        </button>
+
+        <!-- Indicadores -->
+        <div
+          id="history-carousel-indicators"
+          class="absolute -bottom-6 left-1/2 -translate-x-1/2 flex gap-2"
+        >
+          {
+            images.map((_, index) => (
+              <button
+                class="history-indicator w-2.5 h-2.5 rounded-full transition-all duration-300"
+                data-index={index}
+              />
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+  window.onload = () => {
+    let currentImageIndex: number = 0;
+    const images: { src: string; alt: string }[] = [
+      { src: "/images/1.webp", alt: "Grupo de personas felices en un evento" },
+      { src: "/images/2.webp", alt: "Clase de canto en La Voz Creativa" },
+      {
+        src: "/images/3.webp",
+        alt: "Sesión de coaching vocal con Claudia Inés",
+      },
+      {
+        src: "/images/4.webp",
+        alt: "Participantes disfrutando un taller de expresión",
+      },
+    ];
+
+    let startX: number = 0;
+    let endX: number = 0;
+    let direction: number = 1; // 1 = izquierda, -1 = derecha
+
+    // Obtener elementos del DOM
+    const imageElement = document.getElementById(
+      "history-carousel-image"
+    ) as HTMLImageElement | null;
+    const counterElement = document.getElementById(
+      "history-carousel-counter"
+    ) as HTMLElement | null;
+    const prevButton = document.getElementById(
+      "history-prev-btn"
+    ) as HTMLButtonElement | null;
+    const nextButton = document.getElementById(
+      "history-next-btn"
+    ) as HTMLButtonElement | null;
+    const indicators = document.querySelectorAll<HTMLButtonElement>(
+      "#history-carousel-indicators .history-indicator"
+    );
+
+    // Verificar si los elementos existen
+    if (!imageElement || !counterElement || indicators.length === 0) {
+      console.error("Error: No se encontraron elementos del carrusel.");
+      return;
+    }
+
+    function updateCarousel(): void {
+      if (!imageElement || !counterElement) return; // Evita errores si los elementos no están disponibles
+
+      imageElement.style.opacity = "0";
+      imageElement.style.transform = `translateX(${direction * -20}px)`;
+
+      setTimeout(() => {
+        if (!imageElement) return;
+        imageElement.src = images[currentImageIndex].src;
+        imageElement.alt = images[currentImageIndex].alt;
+        imageElement.style.opacity = "1";
+        imageElement.style.transform = "translateX(0)";
+      }, 200);
+
+      counterElement.textContent = `${currentImageIndex + 1} / ${images.length}`;
+
+      indicators.forEach((btn, index) => {
+        btn.classList.toggle("bg-custom-pink", index === currentImageIndex);
+        btn.classList.toggle("w-8", index === currentImageIndex);
+      });
+    }
+
+    prevButton?.addEventListener("click", () => {
+      direction = 1;
+      currentImageIndex =
+        (currentImageIndex - 1 + images.length) % images.length;
+      updateCarousel();
+    });
+
+    nextButton?.addEventListener("click", () => {
+      direction = -1;
+      currentImageIndex = (currentImageIndex + 1) % images.length;
+      updateCarousel();
+    });
+
+    indicators.forEach((btn, index) => {
+      btn.addEventListener("click", () => {
+        currentImageIndex = index;
+        updateCarousel();
+      });
+    });
+
+    // Swipe en pantallas táctiles
+    imageElement.addEventListener("touchstart", (e: TouchEvent) => {
+      startX = e.touches[0].clientX;
+    });
+
+    imageElement.addEventListener("touchmove", (e: TouchEvent) => {
+      endX = e.touches[0].clientX;
+      e.preventDefault(); // Evita que la página haga scroll mientras se desliza el carrusel
+    });
+
+    imageElement.addEventListener("touchend", () => {
+      if (startX - endX > 50) {
+        direction = -1;
+        currentImageIndex = (currentImageIndex + 1) % images.length;
+      } else if (endX - startX > 50) {
+        direction = 1;
+        currentImageIndex =
+          (currentImageIndex - 1 + images.length) % images.length;
+      }
+      updateCarousel();
+    });
+
+    updateCarousel();
+  };
+</script>

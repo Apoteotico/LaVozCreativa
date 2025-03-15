@@ -1,0 +1,263 @@
+---
+// Definiciones de TypeScript (mantenemos igual)
+export interface FaqItem {
+  question: string;
+  answer: string;
+  id: string;
+}
+
+export interface Props {
+  title?: string;
+  subtitle?: string;
+  items?: FaqItem[];
+  /*   contactLink?: string;
+  contactText?: string; */
+}
+
+const {
+  title = "Preguntas Frecuentes",
+  subtitle = "Encuentra respuestas a las preguntas más comunes sobre nuestros servicios y metodología.",
+  /*   contactLink = "/contacto",
+  contactText = "Contáctanos", */
+  items = [
+    {
+      question: "¿Qué es la Escuela Holística de Expresión?",
+      answer:
+        "La Escuela Holística de Expresión es un espacio dedicado a facilitar la transformación personal a través de un enfoque integral que combina técnicas vocales, expresión corporal y desarrollo personal. Nuestro objetivo es ayudarte a conectar con tu voz auténtica y expresarte con confianza y naturalidad.",
+      id: "faq-1",
+    },
+    {
+      question: "¿Necesito experiencia previa para tomar clases?",
+      answer:
+        "No, nuestras clases y sesiones están diseñadas para personas de todos los niveles, desde principiantes absolutos hasta profesionales que desean profundizar en aspectos específicos. Cada programa se adapta a las necesidades y objetivos individuales de cada estudiante.",
+      id: "faq-2",
+    },
+    {
+      question: "¿Cuánto tiempo se necesita para ver resultados?",
+      answer:
+        "Los resultados varían según cada persona y sus objetivos específicos. Muchos estudiantes reportan mejoras en su confianza y expresividad desde las primeras sesiones. Para cambios más profundos y técnicos, recomendamos un compromiso de al menos 2-3 meses de práctica regular.",
+      id: "faq-3",
+    },
+    {
+      question: "¿Ofrecen clases online o solo presenciales?",
+      answer:
+        "Ofrecemos ambas modalidades. Nuestras clases presenciales se realizan en nuestro estudio central, mientras que las sesiones online se imparten a través de plataformas de videoconferencia de alta calidad que permiten una interacción efectiva y personalizada.",
+      id: "faq-4",
+    },
+    {
+      question: "¿Cómo se estructura el programa de coaching vocal?",
+      answer:
+        "El programa de coaching vocal se estructura de manera personalizada según tus necesidades. Generalmente incluye una evaluación inicial, establecimiento de objetivos, sesiones prácticas semanales o quincenales, ejercicios para realizar en casa, y evaluaciones periódicas de progreso. La duración y frecuencia se adaptan a tu disponibilidad y metas.",
+      id: "faq-5",
+    },
+    {
+      question:
+        "¿Trabajan con personas que tienen miedo escénico o ansiedad al hablar en público?",
+      answer:
+        "Sí, trabajamos frecuentemente con personas que experimentan miedo escénico o ansiedad al hablar en público. Nuestro enfoque holístico aborda tanto los aspectos técnicos como emocionales, proporcionando herramientas prácticas para gestionar la ansiedad y construir confianza gradualmente en entornos seguros.",
+      id: "faq-6",
+    },
+  ],
+} = Astro.props;
+
+function ensureIds(items: FaqItem[]): FaqItem[] {
+  return items.map((item, index) => ({
+    ...item,
+    id: item.id || `faq-${index + 1}`,
+  }));
+}
+
+const faqItems: FaqItem[] = ensureIds(items);
+---
+
+<section id="faqs" class="py-16">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold text-custom-title mb-4">
+        {title}
+      </h2>
+      <p
+        class="text-custom-text max-w-2xl mx-auto text-sm sm:text-base md:text-base lg:text-lg"
+      >
+        {subtitle}
+      </p>
+    </div>
+
+    <div class="space-y-6">
+      {
+        faqItems.map((item) => (
+          <div class="faq-item bg-white rounded-lg shadow-md overflow-hidden border border-gray-100 hover:shadow-lg transition-shadow duration-300">
+            <button
+              id={`${item.id}-button`}
+              class="faq-question w-full flex justify-between items-center p-5 text-left focus:outline-none focus:ring-2 focus:ring-custom-pink"
+              aria-expanded="false"
+              aria-controls={`${item.id}-content`}
+            >
+              <span class="text-base sm:text-lg md:text-2xl lg:text-3xl font-medium text-custom-title pr-4">
+                {item.question}
+              </span>
+              <div class="faq-icon-container h-8 w-8 rounded-full flex items-center justify-center bg-gradient-to-r from-custom-pink to-custom-yellow flex-shrink-0">
+                <svg
+                  class="faq-icon w-5 h-5 text-white transform transition-transform duration-300"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </div>
+            </button>
+            <div
+              id={`${item.id}-content`}
+              class="faq-answer hidden overflow-hidden"
+              aria-hidden="true"
+            >
+              <div class="answer-content px-5 pb-5 pt-2 border-t border-gray-100">
+                <div class="answer-gradient-line h-1 w-16 mb-4 rounded-full" />
+
+                {/* <p class="faq-answer-text text-custom-text leading-relaxed text-xs sm:text-sm md:text-base lg:text-base">{item.answer}</p> */}
+                <p class="faq-answer-text text-custom-text leading-relaxed  text-sm sm:text-base md:text-lg lg:text-2xl">
+                  {item.answer}
+                </p>
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+
+    <!--  <div class="mt-16 text-center">
+      <p class="text-custom-text mb-6 text-sm sm:text-base">¿No encuentras lo que buscas?</p>
+      <a 
+        href={contactLink} 
+        class="inline-flex items-center px-6 py-2 sm:px-8 sm:py-3 bg-gradient-to-r from-custom-pink to-custom-yellow text-white rounded-full hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300 text-sm sm:text-base"
+      >
+        {contactText}
+        <svg 
+          class="ml-2 w-4 h-4 sm:w-5 sm:h-5" 
+          xmlns="http://www.w3.org/2000/svg" 
+          fill="none" 
+          viewBox="0 0 24 24" 
+          stroke="currentColor"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+        </svg>
+      </a>
+    </div> -->
+  </div>
+</section>
+
+<script>
+  // Script se mantiene igual
+  interface FaqElement {
+    button: HTMLElement | null;
+    content: HTMLElement | null;
+    icon: SVGElement | null;
+  }
+
+  function toggleFaq(element: FaqElement, isExpanded: boolean): void {
+    const { button, content, icon } = element;
+
+    if (!button || !content || !icon) return;
+
+    button.setAttribute("aria-expanded", (!isExpanded).toString());
+    content.setAttribute("aria-hidden", isExpanded.toString());
+
+    if (isExpanded) {
+      content.style.maxHeight = `${content.scrollHeight}px`;
+      content.offsetHeight;
+      content.style.maxHeight = "0px";
+
+      setTimeout(() => {
+        content.classList.add("hidden");
+        content.style.maxHeight = "";
+        icon.classList.remove("rotate-180");
+      }, 300);
+    } else {
+      content.classList.remove("hidden");
+      content.style.maxHeight = "0px";
+      content.offsetHeight;
+      content.style.maxHeight = `${content.scrollHeight}px`;
+      icon.classList.add("rotate-180");
+
+      setTimeout(() => {
+        content.style.maxHeight = "";
+      }, 300);
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const faqItems: NodeListOf<Element> =
+      document.querySelectorAll(".faq-item");
+
+    faqItems.forEach((item: Element) => {
+      const button = item.querySelector(".faq-question") as HTMLElement;
+      const content = item.querySelector(".faq-answer") as HTMLElement;
+      const icon = item.querySelector(".faq-icon") as SVGElement;
+
+      if (button && content && icon) {
+        button.addEventListener("click", () => {
+          const isExpanded: boolean =
+            button.getAttribute("aria-expanded") === "true";
+          toggleFaq({ button, content, icon }, isExpanded);
+        });
+      }
+    });
+  });
+</script>
+
+<style>
+  /* Estilos para animaciones y transiciones */
+  .faq-answer {
+    transition: max-height 0.3s ease-out;
+  }
+
+  /* Estilos para los colores personalizados */
+  .from-custom-pink {
+    --tw-gradient-from: var(--color-pink, hsl(311, 38%, 61%));
+  }
+
+  .to-custom-yellow {
+    --tw-gradient-to: var(--color-yellow, hsl(61, 72%, 63%));
+  }
+
+  /* Estilos para las preguntas y respuestas */
+  .faq-question {
+    font-family: "AmericanaBT", "LibreBaskerville", serif;
+  }
+
+  /* Importante: Anulamos los estilos globales para los párrafos dentro de las respuestas */
+  .faq-answer-text {
+    font-family: "Inter", sans-serif;
+    /* No heredamos los tamaños globales, usamos los definidos en las clases de Tailwind */
+  }
+
+  /* Efecto hover para los items */
+  .faq-item {
+    transition: transform 0.2s ease-out;
+  }
+
+  .faq-item:hover {
+    transform: translateY(-2px);
+  }
+
+  /* Estilo para el item activo */
+  .faq-question[aria-expanded="true"] {
+    font-weight: 600;
+  }
+
+  /* Línea de gradiente animada */
+  .answer-gradient-line {
+    transition: width 0.3s ease-out;
+  }
+
+  .faq-question[aria-expanded="true"] + .faq-answer .answer-gradient-line {
+    width: 100px;
+  }
+</style>

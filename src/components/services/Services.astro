@@ -1,0 +1,280 @@
+---
+interface Service {
+  title: string;
+  subtitle?: string;
+  forWhat: string;
+  description: string;
+  whatWeDo?: {
+    title: string;
+    items: string[];
+  };
+  howItWorks?: {
+    title: string;
+    items: string[];
+  };
+}
+
+const services: Service[] = [
+  {
+    title: "SESIONES de Coaching Vocal",
+    forWhat: "¿Para qué sirve?",
+    description: "Si sentís que tu voz no refleja lo que querés transmitir ó te cuesta expresarte con seguridad, estas sesiones te ayudarán a liberar bloqueos, fortalecer tu autoconfianza y conectar con vos de una forma más natural y auténtica. Trabajamos con la voz desde una perspectiva integral, logrando que este se un espacio de aprendizaje, conexión, diversión y sanación.",
+    whatWeDo: {
+      title: "¿Qué hacemos en las sesiones?",
+      items: [
+        "Voz medicina y exploración sonora.",
+        "Respiración consciente y flexibilidad vocal.",
+        "Expresión emocional y canto terapéutico.",
+        "Meditación y armonización a través del sonido."
+      ]
+    }
+  },
+  {
+    title: "CLASES DE CANTO Y EXPRESIÓN",
+    forWhat: "¿Para qué sirve?",
+    description: "Si querés mejorar tu técnica vocal, aprender a respirar mejor, proyectar tu voz, hablar o cantar en público, estas clases te darán las herramientas para lograrlo.",
+    whatWeDo: {
+      title: "¿Qué se trabaja en las clases?",
+      items: [
+        "Técnica vocal y técnicas de respiración.",
+        "Proyección de la voz y presencia escénica.",
+        "Rutinas de entrenamiento personalizadas.",
+        "Conciencia holística de la voz.",
+        "Aprendizaje de canciones o textos."
+      ]
+    }
+  },
+  {
+    title: "PROGRAMA Coaching Vocal",
+    subtitle: "(Se Arma a Tu Medida)",
+    forWhat: "¿Para qué sirve?",
+    description: "Si tenés objetivos específicos y querés un plan adaptado a tus necesidades, diseñamos un programa a medida combinando las herramientas de los otros servicios.",
+    howItWorks: {
+      title: "¿Cómo funciona?",
+      items: [
+        "Incluye los temas de Sesiones y Clases según tu enfoque.",
+        "Se define qué aspectos abordar y profundizar.",
+        "Adaptado a tu ritmo y evolución personal."
+      ]
+    }
+  }
+];
+---
+
+<section id="servicios" class="py-20">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-4xl font-bold text-center mb-24 text-custom-title animate-fade-in">
+      Servicios
+    </h2>
+    
+    <div class="grid grid-cols-1 gap-32 md:gap-48">
+      {services.map((service, index) => (
+        <div class={`flex ${index % 2 === 1 ? 'justify-end' : 'justify-start'} scroll-reveal-item opacity-0 translate-y-16`} data-delay={index * 100}>
+          <div class="service-card group bg-white rounded-2xl shadow-xl hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-500 overflow-hidden w-[75%]">
+            <div class="p-8 md:p-10">
+              <h3 class="text-2xl sm:text-3xl font-semibold mb-2 text-custom-title">
+                {service.title}
+              </h3>
+              
+              {service.subtitle && (
+                <p class="text-custom-text mb-6 italic">
+                  {service.subtitle}
+                </p>
+              )}
+
+              <div class="space-y-6">
+                <div>
+                  <h4 class="text-lg font-medium text-[#D67AB1] mb-3">
+                    {service.forWhat}
+                  </h4>
+                  <p class="text-custom-text leading-relaxed">
+                    {service.description}
+                  </p>
+                </div>
+
+                {service.whatWeDo && (
+                  <div>
+                    <h4 class="text-lg font-medium text-[#D67AB1] mb-3">
+                      {service.whatWeDo.title}
+                    </h4>
+                    <ul class="space-y-2">
+                      {service.whatWeDo.items.map((item) => (
+                        <li class="flex items-start text-custom-text">
+                          <span class="text-[#E2E06B] mr-2 flex-shrink-0">✅</span>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {service.howItWorks && (
+                  <div>
+                    <h4 class="text-lg font-medium text-[#D67AB1] mb-3">
+                      {service.howItWorks.title}
+                    </h4>
+                    <ul class="space-y-2">
+                      {service.howItWorks.items.map((item) => (
+                        <li class="flex items-start text-custom-text">
+                          <span class="text-[#E2E06B] mr-2 flex-shrink-0">✅</span>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .service-card {
+    position: relative;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .service-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, #D67AB1, #E2E06B);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    border-radius: 1rem;
+    z-index: 0;
+  }
+  
+  .service-card:hover::before {
+    opacity: 0.1;
+  }
+
+  /* Responsive text sizes */
+  .service-card h3 {
+    font-family: "AmericanaBT", "LibreBaskerville", serif;
+  }
+
+  .service-card p, 
+  .service-card li {
+    font-family: "Inter", sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 768px) {
+    .service-card p, 
+    .service-card li {
+      font-size: 0.95rem;
+    }
+  }
+
+  /* Ensure content is above gradient */
+  .service-card > div {
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* Mobile responsiveness for alignment */
+  @media (max-width: 768px) {
+    .flex.justify-start,
+    .flex.justify-end {
+      justify-content: center;
+    }
+    
+    .service-card {
+      width: 100%;
+    }
+  }
+  
+  /* Scroll reveal animation */
+  .scroll-reveal-item {
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  
+  .scroll-reveal-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Initial fade-in for title */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 1s ease forwards;
+  }
+</style>
+
+<script>
+  // TypeScript for scroll reveal animation
+  interface ScrollRevealOptions {
+    threshold?: number;
+    rootMargin?: string;
+  }
+  
+  class ScrollReveal {
+    private observer: IntersectionObserver;
+    private elements: Element[];
+    
+    constructor(options: ScrollRevealOptions = {}) {
+      const defaultOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -100px 0px'
+      };
+      
+      const mergedOptions = { ...defaultOptions, ...options };
+      
+      this.elements = Array.from(document.querySelectorAll('.scroll-reveal-item'));
+      
+      this.observer = new IntersectionObserver(this.handleIntersect.bind(this), {
+        threshold: mergedOptions.threshold,
+        rootMargin: mergedOptions.rootMargin
+      });
+      
+      this.init();
+    }
+    
+    private handleIntersect(entries: IntersectionObserverEntry[], observer: IntersectionObserver): void {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const element = entry.target as HTMLElement;
+          const delay = element.dataset.delay ? parseInt(element.dataset.delay) : 0;
+          
+          setTimeout(() => {
+            element.classList.add('visible');
+          }, delay);
+          
+          // Unobserve after animation
+          this.observer.unobserve(element);
+        }
+      });
+    }
+    
+    private init(): void {
+      this.elements.forEach(element => {
+        this.observer.observe(element);
+      });
+    }
+  }
+  
+  // Initialize scroll reveal when DOM is loaded
+  document.addEventListener('DOMContentLoaded', () => {
+    new ScrollReveal({
+      threshold: 0.15,
+      rootMargin: '0px 0px -10% 0px'
+    });
+  });
+</script>
+

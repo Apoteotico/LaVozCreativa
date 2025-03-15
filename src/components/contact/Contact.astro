@@ -1,0 +1,142 @@
+---
+// ContactSection.astro
+// Reemplaza FORM_ID con tu ID de formulario de Formspree
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/asdads";
+---
+
+<section id="contacto" class="py-8">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-4xl font-bold text-center mb-8 text-custom-title bg">
+      Contáctanos
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="space-y-6">
+        <p class="text-lg text-custom-text">
+          Estamos aquí para responder a tus preguntas y ayudarte en tu viaje de
+          transformación personal. 
+        </p>
+        <p class="text-lg text-custom-text">
+          Si quieres saber más, agenda una entrevista
+          gratuita para encontrar juntos la mejor opción para ti, o simplemente envíanos un mensaje con tu consulta. 
+        </p>
+      </div>
+
+      <form
+        id="contact-form"
+        action={FORMSPREE_ENDPOINT}
+        method="POST"
+        target="_blank"
+        class="space-y-6"
+      >
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <input
+            type="text"
+            name="name"
+            placeholder="Nombre"
+            class="input-field w-full px-4 py-2 rounded-md border border-custom-text/30 focus:outline-none focus:ring-2 bg-white"
+            required
+          />
+          <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            class="input-field px-4 py-2 rounded-md border border-custom-text/30 focus:outline-none focus:ring-2 bg-white"
+            required
+          />
+        </div>
+        <input
+          type="text"
+          name="subject"
+          placeholder="Asunto"
+          class="input-field w-full px-4 py-2 rounded-md border border-custom-text/30 focus:outline-none focus:ring-2 bg-white"
+          required
+        />
+        <textarea
+          name="message"
+          placeholder="Mensaje"
+          rows="4"
+          class="input-field w-full px-4 py-2 rounded-md border border-custom-text/30 focus:outline-none focus:ring-2 bg-white"
+          required></textarea>
+        <input type="text" name="_gotcha" style="display:none" />
+        <input
+          type="hidden"
+          name="_next"
+          value="https://tudominio.com/gracias"
+        />
+        <button
+          type="submit"
+          id="submit-button"
+          class="submit-button w-full px-8 py-3 bg-gradient-to-r from-custom-pink to-custom-yellow text-white rounded-full hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
+          >Enviar Mensaje</button
+        >
+        <div id="form-status" class="text-center hidden"></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Colores personalizados */
+
+  /* Estilo para el botón con gradiente */
+  button[type="submit"] {
+    background: linear-gradient(
+      to right,
+      var(--custom-pink),
+      var(--custom-yellow)
+    );
+  }
+
+  /* Estilos para mensajes de estado del formulario */
+  .success-message {
+    color: #10b981;
+    display: block;
+    padding: 0.5rem;
+    border-radius: 0.375rem;
+    background-color: rgba(16, 185, 129, 0.1);
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("contact-form") as HTMLFormElement;
+    const submitButton = document.getElementById(
+      "submit-button"
+    ) as HTMLButtonElement;
+    const formStatus = document.getElementById("form-status");
+
+    if (form) {
+      const inputs = form.querySelectorAll(
+        'input:not([type="hidden"]), textarea'
+      ) as NodeListOf<HTMLInputElement | HTMLTextAreaElement>;
+
+      inputs.forEach((input) => {
+        const savedValue = localStorage.getItem(`form_${input.name}`);
+        if (
+          savedValue &&
+          input.type !== "password" &&
+          input.name !== "_gotcha"
+        ) {
+          input.value = savedValue;
+        }
+        input.addEventListener("input", () => {
+          localStorage.setItem(`form_${input.name}`, input.value);
+        });
+      });
+
+      form.addEventListener("submit", (e) => {
+        const currentAction = form.action;
+        form.action = `${currentAction}${currentAction.includes("?") ? "&" : "?"}submitted=true`;
+
+        if (submitButton) {
+          submitButton.disabled = true;
+          submitButton.textContent = "Enviando...";
+          setTimeout(() => {
+            submitButton.disabled = false;
+            submitButton.textContent = "Enviar Mensaje";
+          }, 5000);
+        }
+      });
+    }
+  });
+</script>

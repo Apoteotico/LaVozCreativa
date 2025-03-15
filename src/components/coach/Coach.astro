@@ -1,0 +1,103 @@
+---
+const imageUrl = "/images/Coach-Claudines.webp";
+---
+
+<section id="coach" class="py-20 relative overflow-hidden">
+  <!-- Fondos decorativos -->
+  <div
+    class="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-white/0 to-white/80 pointer-events-none"
+  >
+  </div>
+  <div
+    class="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-custom-yellow/10 blur-3xl"
+  >
+  </div>
+  <div
+    class="absolute -bottom-40 -left-40 w-96 h-96 rounded-full bg-custom-pink/10 blur-3xl"
+  >
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-32 relative z-10">
+    <!-- 🟣 Sección: Biografía -->
+    <div class="grid md:grid-cols-2 gap-8 items-center">
+      <!-- 📷 Imagen de la coach con decoraciones -->
+      <div class="relative">
+        <div
+          class="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-xl"
+        >
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"
+          >
+          </div>
+          <img
+            src={imageUrl}
+            alt="Coach Claudia Inés Marturano"
+            class="object-cover w-full h-full"
+            loading="lazy"
+          />
+          <!-- 📜 Cita sobre la imagen -->
+          <div class=" absolute bottom-0 left-0 right-0 p-6 z-20">
+            <p id="leyenda">
+              "Cuando empecé a estudiar canto, lo hice como una actividad más
+              dentro de un proceso de autoconocimiento y salud mental.
+              Claramente no tenía idea de que esto sería apenas el principio de
+              un gran camino hasta descubrir y ordenar el método que hoy
+              transmito en mis espacios."
+            </p>
+          </div>
+        </div>
+
+        <!-- Bordes decorativos -->
+        <div
+          class="absolute -bottom-4 -right-4 w-full h-full border-2 border-custom-yellow rounded-2xl -z-10 bg-amber-100"
+        >
+        </div>
+        <div
+          class="absolute -top-4 -left-4 w-full h-full border-2 border-custom-pink rounded-2xl -z-10 bg-pink-100"
+        >
+        </div>
+      </div>
+
+      <!-- 📜 Información sobre la coach -->
+      <div class="space-y-0">
+        <h2 class="text-2xl font-bold text-custom-title relative inline-block mb-4">
+          Coach Claudia Inés Marturano
+          <div
+            class="absolute -bottom-2 left-0 w-16 h-1 bg-gradient-to-r from-custom-pink to-custom-yellow rounded-full"
+          >
+          </div>
+        </h2>
+        <p class="text-custom-text leading-relaxed">
+          Cantante, actriz y escritora Argentina, con más de diez años de
+          estudio e investigación y cinco años de enseñanza. Desarrolló un
+          método para conectar y activar la expresión y creatividad de las
+          personas a través de la voz, desde una conciencia holística del ser.
+          Este método de enseñanza reúne distintas disciplinas como la
+          meditación, la respiración consciente, la danza, el teatro, la
+          expresión vocal y la bio-decodificación emocional.
+        </p>
+      </div>
+    </div>
+    <!-- 🟡 Sección: Descripción del rol -->
+    <div class="max-w-3xl mx-auto text-center">
+      <h2
+        class="text-4xl font-bold text-center mb-4 relative inline-block"
+      >
+        Coach
+        <div
+          class="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-custom-pink to-custom-yellow rounded-full"
+        >
+        </div>
+      </h2>
+      <p class="text-lg text-custom-text leading-relaxed">
+        Es quien se encarga de entrenarte para lograr la mejor versión de lo que
+        quieras expresar a través de tu voz. Algunas formas de expresión que te
+        ayuda a mejorar pueden ser canto, recitados de poesía, guiones,
+        presentaciones de proyectos, hablar en cámara, o mejorar tu comunicación
+        en general. Además, te acompaña en el proceso emocional que ese mismo
+        camino va abriendo, trabajándolo así de manera integral y súper
+        personalizada.
+      </p>
+    </div>
+  </div>
+</section>

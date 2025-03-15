@@ -1,0 +1,36 @@
+---
+import '../styles/global.css'
+
+const { title = "La Voz Creativa • Escuela Holistica de Expresión • Argentina • Claudia Inés Marturano • Coach Vocal"}
+=
+	Astro.props
+---
+
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<title>{title}</title>
+	</head>
+	<body class="min-h-screen bg-gradient-page">
+<!-- 	<body class="min-h-screen bg-gradient-to-b from-custom-yellow/10 via-white to-custom-pink/10 font-sans"> -->
+		<slot />
+	</body>
+</html>
+
+<script lang="ts">
+  window.addEventListener("beforeunload", () => {
+    localStorage.setItem("scrollPos", window.scrollY.toString());
+  });
+
+  window.addEventListener("load", () => {
+    const scrollPos = localStorage.getItem("scrollPos");
+    if (scrollPos !== null) {
+      window.scrollTo(0, parseInt(scrollPos, 10));
+    }
+  });
+</script>
+
+
