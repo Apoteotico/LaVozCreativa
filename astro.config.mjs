@@ -11,5 +11,7 @@ export default defineConfig({
         '@styles': resolve('./src/styles')
       }
     }
-  }
+  },
+  site: "https://apoteotico.github.io/LaVozCreativa/",  // URL completa
+  base: "/LaVozCreativa/"  // Subcarpeta en GitHub Pages
 });
