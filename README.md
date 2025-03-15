@@ -1,48 +1,87 @@
-# Astro Starter Kit: Basics
+# 🎤 La Voz Creativa - Escuela Holística de Expresión
+
+Este es un proyecto web desarrollado en [Astro](https://astro.build/) con [Tailwind CSS](https://tailwindcss.com/) para la Escuela Holística de Expresión "La Voz Creativa".  
+Es una landing page informativa con un diseño moderno y responsivo hasta 300px.
+
+---
+
+## 📁 Estructura del Proyecto
+
+```plaintext
+lavozcreativa/
+│── public/                 # Recursos públicos (fuentes, imágenes, favicon)
+│   ├── fonts/              # Archivos de fuentes personalizadas
+│   ├── images/             # Imágenes usadas en la web
+│── src/                    # Código fuente de la web
+│   ├── assets/             # Archivos adicionales (si se requieren)
+│   ├── components/         # Componentes reutilizables de Astro
+│   │   ├── navbar/         # Barra de navegación
+│   │   ├── home/           # Sección de inicio
+│   │   ├── services/       # Servicios ofrecidos
+│   │   ├── coach/          # Información sobre el coach
+│   │   ├── history/        # Historia y filosofía de la escuela
+│   │   ├── faqs/           # Preguntas frecuentes
+│   │   ├── testimonials/   # Testimonios de clientes
+│   │   ├── contact/        # Formulario de contacto
+│   │   ├── footer/         # Pie de página
+│   ├── layouts/            # Diseños generales
+│   ├── pages/              # Páginas principales
+│   ├── styles/             # Estilos globales (Tailwind CSS)
+│── .gitignore              # Archivos y carpetas ignorados en Git
+│── astro.config.mjs        # Configuración de Astro
+│── tsconfig.json           # Configuración de TypeScript
+│── package.json            # Dependencias y scripts del proyecto
+│── README.md               # Documentación del proyecto
+```
+
+---
+
+## 🛠 Tecnologías Utilizadas
+
+- 🚀 **[Astro](https://astro.build/)** - Framework moderno para construir sitios estáticos rápidos.
+- 🎨 **[Tailwind CSS](https://tailwindcss.com/)** - Framework de CSS basado en utilidades.
+- 🔷 **TypeScript** - Tipado opcional para mayor seguridad en el código.
+- ✅ **ESLint** - Herramienta para mantener un código limpio y sin errores.
+
+---
+
+## 🚀 Cómo Ejecutar el Proyecto
+
+### 1️⃣ Clonar el repositorio
 
 ```sh
-npm create astro@latest -- --template basics
+git clone https://github.com/tu-usuario/lavozcreativa.git
+cd lavozcreativa
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+### 2️⃣ Instalar dependencias
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
+```sh
+npm install
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+### 3️⃣ Ejecutar en modo desarrollo
 
-## 🧞 Commands
+```sh
+npm run dev
+```
 
-All commands are run from the root of the project, from a terminal:
+El sitio estará disponible en `http://localhost:4321` (o el puerto indicado en la terminal).
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+### 4️⃣ Construir para producción
 
-## 👀 Want to learn more?
+```sh
+npm run build
+```
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Los archivos estáticos se generarán en la carpeta `/dist/`.
+
+### 5️⃣ Previsualizar la build
+
+```sh
+npm run preview
+```
+
+---
+
+✍️ *Mi primera web completa - Desarrollado con ❤️ by Eitel Hugo Belinzoni - Apoteotico .* 🚀
