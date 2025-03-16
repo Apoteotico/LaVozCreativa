@@ -1,8 +1,17 @@
 ---
 const images = [
-  { src: "/LaVozCreativa/images/1.webp", alt: "Grupo de personas felices en un evento" },
-  { src: "/LaVozCreativa/images/2.webp", alt: "Clase de canto en La Voz Creativa" },
-  { src: "/LaVozCreativa/images/3.webp", alt: "Sesión de coaching vocal con Claudia Inés" },
+  {
+    src: "/LaVozCreativa/images/1.webp",
+    alt: "Grupo de personas felices en un evento",
+  },
+  {
+    src: "/LaVozCreativa/images/2.webp",
+    alt: "Clase de canto en La Voz Creativa",
+  },
+  {
+    src: "/LaVozCreativa/images/3.webp",
+    alt: "Sesión de coaching vocal con Claudia Inés",
+  },
   {
     src: "/LaVozCreativa/images/4.webp",
     alt: "Participantes disfrutando un taller de expresión",
@@ -43,16 +52,14 @@ const images = [
     <div class="lg:flex lg:items-center lg:justify-between">
       <!-- Texto de historia alineado a la izquierda -->
       <div
-        class="bg-white/80 backdrop-blur-sm p-8 rounded-2xl shadow-lg border border-gray-100  w-full lg:w-1/2 lg:mr-8"
+        class="bg-white/80 backdrop-blur-sm p-8 rounded-2xl shadow-lg border border-gray-100 w-full lg:w-1/2 lg:mr-8"
       >
         <h3
           class="text-2xl font-bold text-custom-title mb-6 text-center relative inline-block"
         >
           <span class="relative">
             La Voz Creativa
-            <div
-              class="absolute -bottom-2 left-0 w-full h-0.5 rounded-full"
-            >
+            <div class="absolute -bottom-2 left-0 w-full h-0.5 rounded-full">
             </div>
           </span>
         </h3>
@@ -123,8 +130,14 @@ const images = [
   window.onload = () => {
     let currentImageIndex: number = 0;
     const images: { src: string; alt: string }[] = [
-      { src: "/LaVozCreativa/images/1.webp", alt: "Grupo de personas felices en un evento" },
-      { src: "/LaVozCreativa/images/2.webp", alt: "Clase de canto en La Voz Creativa" },
+      {
+        src: "/LaVozCreativa/images/1.webp",
+        alt: "Grupo de personas felices en un evento",
+      },
+      {
+        src: "/LaVozCreativa/images/2.webp",
+        alt: "Clase de canto en La Voz Creativa",
+      },
       {
         src: "/LaVozCreativa/images/3.webp",
         alt: "Sesión de coaching vocal con Claudia Inés",
@@ -205,14 +218,18 @@ const images = [
     });
 
     // Swipe en pantallas táctiles
-    imageElement.addEventListener("touchstart", (e: TouchEvent) => {
+    imageElement.addEventListener("touchstart", 
+    (e: TouchEvent) => {
       startX = e.touches[0].clientX;
-    });
+    },
+    { passive: true }
+  );
 
     imageElement.addEventListener("touchmove", (e: TouchEvent) => {
       endX = e.touches[0].clientX;
-      e.preventDefault(); // Evita que la página haga scroll mientras se desliza el carrusel
-    });
+      ; // Evita que la página haga scroll mientras se desliza el carrusel
+    },
+    { passive: true });
 
     imageElement.addEventListener("touchend", () => {
       if (startX - endX > 50) {
