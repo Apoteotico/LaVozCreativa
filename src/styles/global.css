@@ -47,32 +47,32 @@
 
 @font-face {
   font-family: "AmericanaBT-Bold";
-  src: url("/fonts/AmericanaBT-Bold.woff2") format("woff2"),
-    url("/fonts/AmericanaBT-Bold.woff") format("woff");
+  src: url("./fonts/AmericanaBT-Bold.woff2") format("woff2"),
+    url("./fonts/AmericanaBT-Bold.woff") format("woff");
   font-weight: bold;
   font-style: normal;
 }
 
 @font-face {
   font-family: "AmericanaBT";
-  src: url("/fonts/AmericanaBT-Roman.woff2") format("woff2"),
-    url("/fonts/AmericanaBT-Roman.woff") format("woff");
+  src: url("./fonts/AmericanaBT-Roman.woff2") format("woff2"),
+    url("./fonts/AmericanaBT-Roman.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Inter";
-  src: url("/fonts/Inter-Regular.woff2") format("woff2"),
-    url("/fonts/Inter-Regular.woff") format("woff");
+  src: url("./fonts/Inter-Regular.woff2") format("woff2"),
+    url("./fonts/Inter-Regular.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "LibreBaskerville";
-  src: url("/fonts/LibreBaskerville-Regular.woff2") format("woff2"),
-    url("/fonts/LibreBaskerville-Regular.woff") format("woff");
+  src: url("./fonts/LibreBaskerville-Regular.woff2") format("woff2"),
+    url("./fonts/LibreBaskerville-Regular.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
