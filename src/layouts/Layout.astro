@@ -1,24 +1,24 @@
 ---
-import '../styles/global.css'
+import "../styles/global.css";
 
-const { title = "La Voz Creativa • Escuela Holistica de Expresión • Argentina • Claudia Inés Marturano • Coach Vocal"}
-=
-	Astro.props
+const {
+  title = "La Voz Creativa • Escuela Holistica de Expresión • Argentina • Claudia Inés Marturano • Coach Vocal",
+} = Astro.props;
 ---
 
 <!doctype html>
 <html lang="es">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<title>{title}</title>
-	</head>
-	<body class="min-h-screen bg-gradient-page">
-<!-- 	<body class="min-h-screen bg-gradient-to-b from-custom-yellow/10 via-white to-custom-pink/10 font-sans"> -->
-		<slot />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+  </head>
+  <body class="min-h-screen bg-gradient-page">
+    <!-- 	<body class="min-h-screen bg-gradient-to-b from-custom-yellow/10 via-white to-custom-pink/10 font-sans"> -->
+    <slot />
+  </body>
 </html>
 
 <script lang="ts">
@@ -33,5 +33,3 @@ const { title = "La Voz Creativa • Escuela Holistica de Expresión • Argenti
     }
   });
 </script>
-
-
