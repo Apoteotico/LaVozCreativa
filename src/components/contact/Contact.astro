@@ -98,45 +98,55 @@ const FORMSPREE_ENDPOINT = "https://formspree.io/f/mvgkgwbq";
 </style>
 
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const form = document.getElementById("contact-form") as HTMLFormElement;
-    const submitButton = document.getElementById(
-      "submit-button"
-    ) as HTMLButtonElement;
-    const formStatus = document.getElementById("form-status");
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("contact-form") as HTMLFormElement;
+  const submitButton = document.getElementById("submit-button") as HTMLButtonElement;
+  const formStatus = document.getElementById("form-status");
 
-    if (form) {
-      const inputs = form.querySelectorAll(
-        'input:not([type="hidden"]), textarea'
-      ) as NodeListOf<HTMLInputElement | HTMLTextAreaElement>;
+  if (form) {
+    const inputs = form.querySelectorAll('input:not([type="hidden"]), textarea') as NodeListOf<HTMLInputElement | HTMLTextAreaElement>;
 
-      inputs.forEach((input) => {
-        const savedValue = localStorage.getItem(`form_${input.name}`);
-        if (
-          savedValue &&
-          input.type !== "password" &&
-          input.name !== "_gotcha"
-        ) {
-          input.value = savedValue;
-        }
-        input.addEventListener("input", () => {
-          localStorage.setItem(`form_${input.name}`, input.value);
-        });
+    inputs.forEach((input) => {
+      const savedValue = localStorage.getItem(`form_${input.name}`);
+      if (savedValue && input.type !== "password" && input.name !== "_gotcha") {
+        input.value = savedValue;
+      }
+      input.addEventListener("input", () => {
+        localStorage.setItem(`form_${input.name}`, input.value);
       });
+    });
 
-      form.addEventListener("submit", (e) => {
-        const currentAction = form.action;
-        form.action = `${currentAction}${currentAction.includes("?") ? "&" : "?"}submitted=true`;
+    form.addEventListener("submit", (e) => {
+      e.preventDefault(); // Evita que el formulario se envíe automáticamente
 
-        if (submitButton) {
-          submitButton.disabled = true;
-          submitButton.textContent = "Enviando...";
-          setTimeout(() => {
-            submitButton.disabled = false;
-            submitButton.textContent = "Enviar Mensaje";
-          }, 5000);
-        }
-      });
-    }
-  });
+      const lastSubmission = localStorage.getItem("lastSubmission");
+      const now = Date.now();
+      const thirtyMinutes = 30 * 60 * 1000; // 30 minutos en milisegundos
+
+      if (lastSubmission && now - parseInt(lastSubmission) < thirtyMinutes) {
+        alert("Solo puedes enviar un formulario cada 30 minutos.");
+        return;
+      }
+
+      // Guarda la nueva marca de tiempo en localStorage
+      localStorage.setItem("lastSubmission", now.toString());
+
+      const currentAction = form.action;
+      form.action = `${currentAction}${currentAction.includes("?") ? "&" : "?"}submitted=true`;
+
+      if (submitButton) {
+        submitButton.disabled = true;
+        submitButton.textContent = "Enviando...";
+      }
+
+      // Simula un envío visual y luego envía el formulario real
+      setTimeout(() => {
+        submitButton.disabled = false;
+        submitButton.textContent = "Enviar Mensaje";
+        form.submit(); // Envía el formulario después de la animación
+      }, 5000);
+    });
+  }
+});
+
 </script>

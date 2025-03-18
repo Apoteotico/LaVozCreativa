@@ -133,8 +133,12 @@ a {
   font-family: "Inter", sans-serif;
   @apply text-sm sm:text-base md:text-lg; /* Hereda tamaño de párrafo, pero no exagera */
 }
-
-
+#subtitulo,
+#descripcion{
+  
+  @apply text-[#1B1B1B] text-[14px] sm:text-xs md:text-base lg:text-lg xl:text-xl italic;
+  
+}
 
 
 /*  .quote-gradient {
@@ -210,7 +214,7 @@ style="background: linear-gradient(to right, hsl(311, 38%, 61%), hsl(61, 72%, 63
     background-clip: text;
     color: transparent;
   } */
-transi
+
 
   /* Bordes redondeados */
   .rounded-color-lg {
