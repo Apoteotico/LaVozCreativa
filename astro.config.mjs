@@ -12,6 +12,6 @@ export default defineConfig({
       }
     }
   },
-  site: "https://apoteotico.github.io/LaVozCreativa/",  // URL completa
-  base: "/LaVozCreativa/"  // Subcarpeta en GitHub Pages
+  site: "https://lavozcreativaescuela.com.ar",  // URL completa
+  base: "/"  // Subcarpeta en GitHub Pages
 });
