@@ -4,124 +4,170 @@ const navigation = [
   { name: "Servicios", href: "#servicios", current: false },
   { name: "Coach", href: "#coach", current: false },
   { name: "Historia", href: "#historia", current: false },
-  { name: "FAQs", href: "#faqs", current: false },
+  { name: "Preguntas", href: "#faqs", current: false },
   { name: "Contacto", href: "#contacto", current: false },
   { name: "Testimonios", href: "#testimonios", current: false },
 ];
 ---
 
-<nav class="fixed w-full z-50 bg-violet-50 border-violet-200 dark:bg-violet-800 dark:border-violet-700 transition-colors duration-300">
-  <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+<nav
+  class="fixed w-full z-50 bg-violet-50 border-violet-200 dark:bg-violet-800 dark:border-violet-700 transition-colors duration-300"
+>
+  <div
+    class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
+  >
     <!-- Logo -->
-   <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
-     <img src="./images/logo-lvc.png" alt="Logo LVC" class="h-25 w-auto">
-   </a>
-    
+    <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
+      <img src="./images/logo-lvc.png" alt="Logo LVC" class="h-25 w-auto" />
+    </a>
+
     <!-- Mobile menu button -->
-    <button 
-      id="navbar-toggle" 
-      type="button" 
-      class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-violet-500 rounded-lg md:hidden hover:bg-violet-100 focus:outline-none focus:ring-2 focus:ring-violet-200 dark:text-violet-400 dark:hover:bg-violet-700 dark:focus:ring-violet-600" 
-      aria-controls="navbar-menu" 
+    <button
+      id="navbar-toggle"
+      type="button"
+      class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-violet-500 rounded-lg md:hidden hover:bg-violet-100 focus:outline-none focus:ring-2 focus:ring-violet-200 dark:text-violet-400 dark:hover:bg-violet-700 dark:focus:ring-violet-600"
+      aria-controls="navbar-menu"
       aria-expanded="false"
     >
       <span class="sr-only">Abrir menú principal</span>
-      <svg class="w-5 h-5 menu-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+      <svg
+        class="w-5 h-5 menu-icon"
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 17 14"
+      >
+        <path
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M1 1h15M1 7h15M1 13h15"></path>
       </svg>
-      <svg class="w-5 h-5 close-icon hidden" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+      <svg
+        class="w-5 h-5 close-icon hidden"
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M6 18L18 6M6 6l12 12"></path>
       </svg>
     </button>
-    
+
     <!-- Navigation menu -->
     <div class="hidden w-full md:block md:w-auto" id="navbar-menu">
-      <ul class="flex flex-col font-medium mt-4 rounded-lg bg-violet-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-transparent dark:bg-violet-800 md:dark:bg-transparent dark:border-violet-700">
-        {navigation.map((item) => (
-          <li>
-            <a 
-              href={item.href} 
-              class={`block py-2 px-3 md:p-0 rounded-sm ${item.current 
-                ? 'text-white bg-pink-700 md:bg-transparent md:text-pink-700 md:dark:text-pink-500 dark:bg-pink-600 md:dark:bg-transparent' 
-                : 'text-violet-900 hover:bg-violet-100 md:hover:bg-transparent md:border-0 md:hover:text-pink-700 dark:text-white md:dark:hover:text-pink-500 dark:hover:bg-violet-700 dark:hover:text-white md:dark:hover:bg-transparent'}`}
-              aria-current={item.current ? "page" : undefined}
-            >
-              {item.name}
-            </a>
-          </li>
-        ))}
+      <ul
+        class="flex flex-col font-medium mt-4 rounded-lg bg-violet-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-transparent dark:bg-violet-800 md:dark:bg-transparent dark:border-violet-700"
+      >
+        {
+          navigation.map((item) => (
+            <li>
+              <a
+                href={item.href}
+                class={`block py-2 px-3 md:p-0 rounded-sm ${
+                  item.current
+                    ? "text-white bg-pink-700 md:bg-transparent md:text-pink-700 md:dark:text-pink-500 dark:bg-pink-600 md:dark:bg-transparent"
+                    : "text-violet-900 hover:bg-violet-100 md:hover:bg-transparent md:border-0 md:hover:text-pink-700 dark:text-white md:dark:hover:text-pink-500 dark:hover:bg-violet-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                }`}
+                aria-current={item.current ? "page" : undefined}
+              >
+                {item.name}
+              </a>
+            </li>
+          ))
+        }
       </ul>
     </div>
   </div>
 </nav>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const navbarToggle = document.getElementById('navbar-toggle');
-    const navbarMenu = document.getElementById('navbar-menu');
-    const menuIcon = document.querySelector('.menu-icon');
-    const closeIcon = document.querySelector('.close-icon');
-    
+  document.addEventListener("DOMContentLoaded", () => {
+    const navbarToggle = document.getElementById("navbar-toggle");
+    const navbarMenu = document.getElementById("navbar-menu");
+    const menuIcon = document.querySelector(".menu-icon");
+    const closeIcon = document.querySelector(".close-icon");
+
     // Check if dark mode is preferred
-    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const isDarkMode = window.matchMedia(
+      "(prefers-color-scheme: dark)"
+    ).matches;
     if (isDarkMode) {
-      document.documentElement.classList.add('dark');
+      document.documentElement.classList.add("dark");
     }
-    
+
     // Toggle mobile menu
     if (navbarToggle && navbarMenu && menuIcon && closeIcon) {
-      navbarToggle.addEventListener('click', () => {
-        const expanded = navbarToggle.getAttribute('aria-expanded') === 'true';
-        
+      navbarToggle.addEventListener("click", () => {
+        const expanded = navbarToggle.getAttribute("aria-expanded") === "true";
+
         // Toggle menu visibility
-        navbarMenu.classList.toggle('hidden');
-        
+        navbarMenu.classList.toggle("hidden");
+
         // Update aria-expanded
-        navbarToggle.setAttribute('aria-expanded', !expanded);
-        
+        navbarToggle.setAttribute("aria-expanded", (!expanded).toString());
+
         // Toggle icons
-        menuIcon.classList.toggle('hidden');
-        closeIcon.classList.toggle('hidden');
+        menuIcon.classList.toggle("hidden");
+        closeIcon.classList.toggle("hidden");
       });
-      
+
       // Close menu when clicking on links (mobile)
-      const navLinks = navbarMenu.querySelectorAll('a');
-      navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-          if (window.innerWidth < 768) { // Only on mobile
-            navbarMenu.classList.add('hidden');
-            navbarToggle.setAttribute('aria-expanded', 'false');
-            menuIcon.classList.remove('hidden');
-            closeIcon.classList.add('hidden');
+      const navLinks = navbarMenu.querySelectorAll("a");
+      navLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          if (window.innerWidth < 768) {
+            // Only on mobile
+            navbarMenu.classList.add("hidden");
+            navbarToggle.setAttribute("aria-expanded", "false");
+            menuIcon.classList.remove("hidden");
+            closeIcon.classList.add("hidden");
           }
         });
       });
     }
-    
+
     // Handle scroll effects
-    const navbar = document.querySelector('nav');
+    const navbar = document.querySelector("nav");
     if (navbar) {
-      window.addEventListener('scroll', () => {
+      window.addEventListener("scroll", () => {
         if (window.scrollY > 0) {
-          navbar.classList.add('shadow-sm');
-          navbar.classList.add('bg-white/95', 'dark:bg-violet-800/95', 'backdrop-blur-sm');
+          navbar.classList.add("shadow-sm");
+          navbar.classList.add(
+            "bg-white/95",
+            "dark:bg-violet-800/95",
+            "backdrop-blur-sm"
+          );
         } else {
-          navbar.classList.remove('shadow-sm');
-          navbar.classList.remove('bg-white/95', 'dark:bg-violet-800/95', 'backdrop-blur-sm');
+          navbar.classList.remove("shadow-sm");
+          navbar.classList.remove(
+            "bg-white/95",
+            "dark:bg-violet-800/95",
+            "backdrop-blur-sm"
+          );
         }
       });
-      
+
       // Initial check
       if (window.scrollY > 0) {
-        navbar.classList.add('shadow-sm');
-        navbar.classList.add('bg-white/95', 'dark:bg-violet-800/95', 'backdrop-blur-sm');
+        navbar.classList.add("shadow-sm");
+        navbar.classList.add(
+          "bg-white/95",
+          "dark:bg-violet-800/95",
+          "backdrop-blur-sm"
+        );
       }
     }
   });
-  
+
   // Optional: Toggle dark mode
   function toggleDarkMode() {
-    document.documentElement.classList.toggle('dark');
+    document.documentElement.classList.toggle("dark");
   }
 </script>
-

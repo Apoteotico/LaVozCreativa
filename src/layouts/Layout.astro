@@ -1,9 +1,7 @@
 ---
 import "../styles/global.css";
 
-const {
-  title = "La Voz Creativa • Escuela Holistica de Expresión • Argentina • Claudia Inés Marturano • Coach Vocal",
-} = Astro.props;
+const {title} = Astro.props;
 ---
 
 <!doctype html>
@@ -11,24 +9,42 @@ const {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
     <title>{title}</title>
-    <link rel="icon" type="image/svg+xml" href="/favicon.png" />
-    <!--   <meta name="google-site-verification" content="sj7cw1UlvKxcTVZHwYcT43mPAUvnHillR5-srHZYINA" /> -->
-    <meta name="google-site-verification" content="W4XQP48FCMJTJQTaA7h6PGzSgPBehTSL2xs-z_Gl4m8" />
-   
-
-   <!-- Google analitycs -->
-   <!-- Google tag (gtag.js) -->
-   <script async src="https://www.googletagmanager.com/gtag/js?id=G-XRWPEMT1BB"></script>
-   <script>
-     window.dataLayer = window.dataLayer || [];
-     function gtag(){dataLayer.push(arguments);}
-     gtag('js', new Date());
     
-     gtag('config', 'G-XRWPEMT1BB');
-   </script>
- 
- 
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content="https://lavozcreativaescuela.com.ar">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="La Voz Creativa Escuela Holística de Expresión">
+    <meta property="og:description" content="Clases de canto, clases de oratoria, clases de expresión - Claudia Inés Marturano coach de expresión holística">
+    <meta property="og:image" content="./images/logo-lvc.png">
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:domain" content="lavozcreativaescuela.com.ar">
+    <meta property="twitter:url" content="https://lavozcreativaescuela.com.ar">
+    <meta name="twitter:title" content="Clases de Canto y Coaching Vocal en Mar del Plata • La Voz Creativa">
+    <meta name="twitter:description" content="Mejorá tu técnica vocal, aprendé a hablar en público y conectá con tu expresión auténtica. Escuela dirigida por Claudia Inés Marturano">
+    <meta name="twitter:image" content="./images/logo-lvc.png">
+
+    <meta
+      name="google-site-verification"
+      content="W4XQP48FCMJTJQTaA7h6PGzSgPBehTSL2xs-z_Gl4m8"
+    />
+
+    <!-- Google analitycs -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XRWPEMT1BB"
+    ></script>
+    <!-- <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-XRWPEMT1BB");
+    </script> -->
   </head>
   <body class="min-h-screen bg-gradient-page">
     <!-- 	<body class="min-h-screen bg-gradient-to-b from-custom-yellow/10 via-white to-custom-pink/10 font-sans"> -->

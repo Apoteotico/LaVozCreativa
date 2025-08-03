@@ -10,8 +10,7 @@
       "@styles/*": ["styles/*"]
     }
   },
-  "include": [".astro/types.d.ts", "**/*", "**/*.astro"],
-  "exclude": ["dist"],
-  
+  "include": ["src/**/*", ".astro/types.d.ts", "**/*.astro"],
+  "exclude": ["dist"]
 }
 
