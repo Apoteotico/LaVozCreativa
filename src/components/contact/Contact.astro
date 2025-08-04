@@ -11,13 +11,15 @@ const FORMSPREE_ENDPOINT = "https://formspree.io/f/mvgkgwbq";
     </h2>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
       <div class="space-y-6">
+
+
+
         <p class="text-lg text-custom-text">
-          Estamos aquí para responder a tus preguntas y ayudarte en tu viaje de
-          transformación personal. 
+          Estamos aquí para acompañarte en tu viaje de <span class="text-purple-500 font-bold">crecimiento</span> personal, potenciar tus habilidades y ayudarte a superar el pánico escénico.
         </p>
         <p class="text-lg text-custom-text">
-          Si quieres saber más, agenda una entrevista
-          gratuita para encontrar juntos la mejor opción para ti, o simplemente envíanos un mensaje con tu consulta. 
+          Completá el formulario para agendar una entrevista
+          <span class="text-purple-500 font-bold">GRATUITA!</span> juntos encontraremos la mejor opción para ti.
         </p>
       </div>
 
@@ -66,7 +68,7 @@ const FORMSPREE_ENDPOINT = "https://formspree.io/f/mvgkgwbq";
         <button
           type="submit"
           id="submit-button"
-          class="submit-button w-full px-8 py-3 bg-gradient-to-r from-custom-pink to-custom-yellow text-white rounded-full hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
+          class="submit-button w-full px-8 py-3 bg-amber-50 text-white rounded-full hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
           >Enviar Mensaje</button
         >
         <div id="form-status" class="text-center hidden"></div>
@@ -80,11 +82,8 @@ const FORMSPREE_ENDPOINT = "https://formspree.io/f/mvgkgwbq";
 
   /* Estilo para el botón con gradiente */
   button[type="submit"] {
-    background: linear-gradient(
-      to right,
-      var(--custom-pink),
-      var(--custom-yellow)
-    );
+    background: #AD46FF; /* Color de fondo del botón */
+    
   }
 
   /* Estilos para mensajes de estado del formulario */

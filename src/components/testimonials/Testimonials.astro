@@ -90,7 +90,7 @@ const testimonials = [
                 <div class="relative bg-white rounded-2xl p-6 sm:p-8 shadow-lg transform transition-transform duration-500 hover:scale-[1.02]">
                   <div
                     class="absolute -top-4 -left-4 w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center shadow-lg"
-                    style="background: linear-gradient(to right, hsl(311, 38%, 61%), hsl(61, 72%, 63%));"
+                    style="background: #711f83e8;"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -131,7 +131,7 @@ const testimonials = [
         <!-- Flechas de navegación -->
         <button
         id="prev-testimonial"
-        class="absolute left-2 sm:left-0 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 text-white rounded-full shadow-lg flex items-center justify-center transition-all focus:ring-2 focus:ring-[var(--color-pink)] " style="background: linear-gradient(to right, hsl(311, 38%, 61%), hsl(61, 72%, 63%));"
+        class="absolute left-2 sm:left-0 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 text-white rounded-full shadow-lg flex items-center justify-center transition-all focus:ring-2 focus:ring-[var(--color-pink)] "style="background: #711f83e8;"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -150,7 +150,7 @@ const testimonials = [
       </button>
       <button
         id="next-testimonial"
-        class="absolute right-2 sm:right-0 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-12 sm:h-12 text-white rounded-full shadow-lg flex items-center justify-center transition-all focus:ring-2 focus:ring-[var(--color-pink)]"style="background: linear-gradient(to right, hsl(311, 38%, 61%), hsl(61, 72%, 63%));"
+        class="absolute right-2 sm:right-0 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-12 sm:h-12 text-white rounded-full shadow-lg flex items-center justify-center transition-all focus:ring-2 focus:ring-[var(--color-pink)]"style="background: #711f83e8;"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -224,24 +224,15 @@ const testimonials = [
 
       // Update indicatorsT
       indicatorsT.forEach((indicator, index) => {
+        const el = indicator as HTMLElement;
         if (index === currentIndex) {
-          indicator.classList.add(
-            "active",
-            "bg-gradient-to-r",
-            "from-custom-pink",
-            "to-custom-yellow",
-            "w-8"
-          );
-          indicator.classList.remove("bg-gray-300");
+          el.classList.add("active");
+          el.classList.remove("bg-gray-300");
+          el.style.background = "#711f83e8";
         } else {
-          indicator.classList.remove(
-            "active",
-            "bg-gradient-to-r",
-            "from-custom-pink",
-            "to-custom-yellow",
-            "w-8"
-          );
-          indicator.classList.add("bg-gray-300");
+          el.classList.remove("active");
+          el.style.background = "";
+          el.classList.add("bg-gray-300");
         }
       });
     }
