@@ -146,37 +146,9 @@ const navigation = [
       });
     }
 
-    // Handle scroll effects
-    const navbar = document.querySelector("nav");
-    if (navbar) {
-      window.addEventListener("scroll", () => {
-        if (window.scrollY > 0) {
-          navbar.classList.add("shadow-sm");
-          navbar.classList.add(
-            "bg-white/95",
-            "dark:bg-violet-800/95",
-            "backdrop-blur-sm"
-          );
-        } else {
-          navbar.classList.remove("shadow-sm");
-          navbar.classList.remove(
-            "bg-white/95",
-            "dark:bg-violet-800/95",
-            "backdrop-blur-sm"
-          );
-        }
-      });
 
-      // Initial check
-      if (window.scrollY > 0) {
-        navbar.classList.add("shadow-sm");
-        navbar.classList.add(
-          "bg-white/95",
-          "dark:bg-violet-800/95",
-          "backdrop-blur-sm"
-        );
-      }
-    }
+
+
   });
 
   // Optional: Toggle dark mode

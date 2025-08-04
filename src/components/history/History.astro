@@ -20,7 +20,6 @@ const images = [
 ---
 
 <section id="historia" class="py-20 mt-24">
-
   <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 relative z-10">
     <!-- Título centrado -->
     <h2
@@ -51,8 +50,19 @@ const images = [
           </span>
         </h3>
         <p class="text-lg text-custom-text leading-relaxed">
-Es una Escuela Holística de Expresión. Surge desde la necesidad de expandir la información sobre aprender a expresarse. Ya que consideramos que es tan importante en el desarrollo de un ser humano, como lo es caminar, comer, escribir, leer o aprender a ir al baño. Consideramos a la expresión como una necesidad fisiológica vital, es el canal por el que le damos movimiento y salida a las emociones. Las cuales son la materia prima de nuestra creatividad.
-La pedagogía holística de la escuela significa que trabajamos con un enfoque educativo que considera al humano como un ser completo, abordando no solo sus aspectos cognitivos, sino también sus dimensiones emocionales, sociales, físicas y espirituales. Se centra en el desarrollo integral de la persona, buscando que el aprendizaje sea significativo y conectado con la vida real.
+          Es una Escuela Holística de Expresión. Surge desde la necesidad de
+          expandir la información sobre aprender a expresarse. Ya que
+          consideramos que es tan importante en el desarrollo de un ser humano,
+          como lo es caminar, comer, escribir, leer o aprender a ir al baño.
+          Consideramos a la expresión como una necesidad fisiológica vital, es
+          el canal por el que le damos movimiento y salida a las emociones. Las
+          cuales son la materia prima de nuestra creatividad. La pedagogía
+          holística de la escuela significa que trabajamos con un enfoque
+          educativo que considera al humano como un ser completo, abordando no
+          solo sus aspectos cognitivos, sino también sus dimensiones
+          emocionales, sociales, físicas y espirituales. Se centra en el
+          desarrollo integral de la persona, buscando que el aprendizaje sea
+          significativo y conectado con la vida real.
         </p>
       </div>
 
@@ -79,6 +89,7 @@ La pedagogía holística de la escuela significa que trabajamos con un enfoque e
         <button
           id="history-prev-btn"
           class="absolute left-4 top-1/2 -translate-y-1/2 bg-gray-900/30 text-white p-3 rounded-full hover:bg-gray-900/50 transition-all shadow-lg hidden sm:block"
+          aria-label="Mostrar imagen anterior"
         >
           ❮
         </button>
@@ -87,6 +98,7 @@ La pedagogía holística de la escuela significa que trabajamos con un enfoque e
         <button
           id="history-next-btn"
           class="absolute right-4 top-1/2 -translate-y-1/2 bg-gray-900/30 text-white p-3 rounded-full hover:bg-gray-900/50 transition-all shadow-lg hidden sm:block"
+          aria-label="Mostrar imagen siguiente"
         >
           ❯
         </button>
@@ -101,6 +113,7 @@ La pedagogía holística de la escuela significa que trabajamos con un enfoque e
               <button
                 class="history-indicator w-2.5 h-2.5 rounded-full transition-all duration-300"
                 data-index={index}
+                aria-label={`Ir a imagen ${index + 1}`}
               />
             ))
           }
@@ -201,18 +214,21 @@ La pedagogía holística de la escuela significa que trabajamos con un enfoque e
     });
 
     // Swipe en pantallas táctiles
-    imageElement.addEventListener("touchstart", 
-    (e: TouchEvent) => {
-      startX = e.touches[0].clientX;
-    },
-    { passive: true }
-  );
+    imageElement.addEventListener(
+      "touchstart",
+      (e: TouchEvent) => {
+        startX = e.touches[0].clientX;
+      },
+      { passive: true }
+    );
 
-    imageElement.addEventListener("touchmove", (e: TouchEvent) => {
-      endX = e.touches[0].clientX;
-      ; // Evita que la página haga scroll mientras se desliza el carrusel
-    },
-    { passive: true });
+    imageElement.addEventListener(
+      "touchmove",
+      (e: TouchEvent) => {
+        endX = e.touches[0].clientX; // Evita que la página haga scroll mientras se desliza el carrusel
+      },
+      { passive: true }
+    );
 
     imageElement.addEventListener("touchend", () => {
       if (startX - endX > 50) {
