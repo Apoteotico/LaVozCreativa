@@ -82,7 +82,7 @@ html {
 }
 
 section {
-  scroll-margin-top: 20px; /* Ajusta este valor según la altura de tu navbar */
+  scroll-margin-top: 100px; /* Ajusta este valor según la altura de tu navbar */
 }
 
 

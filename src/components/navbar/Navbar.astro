@@ -4,9 +4,9 @@ const navigation = [
   { name: "Servicios", href: "#servicios", current: false },
   { name: "Coach", href: "#coach", current: false },
   { name: "Historia", href: "#historia", current: false },
-  { name: "Preguntas", href: "#faqs", current: false },
-  { name: "Contacto", href: "#contacto", current: false },
   { name: "Testimonios", href: "#testimonios", current: false },
+  { name: "Contacto", href: "#contacto", current: false },
+  { name: "Preguntas", href: "#faqs", current: false },
 ];
 ---
 
@@ -18,7 +18,8 @@ const navigation = [
   >
     <!-- Logo -->
     <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
-      <img src="./images/logo-lvc.png" alt="Logo LVC" class="h-25 w-auto" />
+      <img src="./logo-lvc.png" alt="Logo LVC" class="h-25 w-auto dark:hidden">
+      <img src="./logo-lvc-dark.png" alt="Logo LVC darkmode" class="h-25 w-auto hidden dark:block">
     </a>
 
     <!-- Mobile menu button -->

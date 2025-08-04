@@ -16,7 +16,7 @@ interface Service {
 
 const services: Service[] = [
   {
-    title: "Sesión de Coaching Vocal",
+    title: "SESIONES de Coaching Vocal",
     forWhat: "¿Para qué sirve?",
     description: "Si sentís que tu voz no refleja lo que querés transmitir ó te cuesta expresarte con seguridad, estas sesiones te ayudarán a liberar bloqueos, fortalecer tu autoconfianza y conectar con vos de una forma más natural y auténtica. Trabajamos con la voz desde una perspectiva integral, logrando que este se un espacio de aprendizaje, conexión, diversión y sanación.",
     whatWeDo: {
@@ -30,9 +30,9 @@ const services: Service[] = [
     }
   },
   {
-    title: "Clases de Canto y/o Expresión Vocal",
+    title: "CLASES DE CANTO Y EXPRESIÓN",
     forWhat: "¿Para qué sirve?",
-    description: "Si querés aprender a cantar, mejorar tu técnica vocal, proyectar tu voz, hablar en público, desarrollar y pulir tu oratoria, estas clases te darán las herramientas para lograrlo.",
+    description: "Si querés mejorar tu técnica vocal, aprender a respirar mejor, proyectar tu voz, hablar o cantar en público, estas clases te darán las herramientas para lograrlo.",
     whatWeDo: {
       title: "¿Qué se trabaja en las clases?",
       items: [
@@ -45,10 +45,10 @@ const services: Service[] = [
     }
   },
   {
-    title: "Programa de Coaching Vocal",
+    title: "PROGRAMA Coaching Vocal",
     subtitle: "(Se Arma a Tu Medida)",
     forWhat: "¿Para qué sirve?",
-    description: "Si tenés objetivos específicos y querés un plan adaptado a tus necesidades, diseñamos un programa a medida.",
+    description: "Si tenés objetivos específicos y querés un plan adaptado a tus necesidades, diseñamos un programa a medida combinando las herramientas de los otros servicios.",
     howItWorks: {
       title: "¿Cómo funciona?",
       items: [
@@ -100,7 +100,7 @@ const services: Service[] = [
                     <ul class="space-y-2">
                       {service.whatWeDo.items.map((item) => (
                         <li class="flex items-start text-custom-text">
-                          <span class="text-[#E2E06B] mr-2 flex-shrink-0">✅</span>
+                          <span class="text-[#6a1772] mr-2 flex-shrink-0">•</span>
                           <span>{item}</span>
                         </li>
                       ))}
@@ -116,7 +116,7 @@ const services: Service[] = [
                     <ul class="space-y-2">
                       {service.howItWorks.items.map((item) => (
                         <li class="flex items-start text-custom-text">
-                          <span class="text-[#E2E06B] mr-2 flex-shrink-0">✅</span>
+                          <span class="text-[#6a1772] mr-2 flex-shrink-0">•</span>
                           <span>{item}</span>
                         </li>
                       ))}
