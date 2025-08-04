@@ -43,6 +43,9 @@
   --font-bold: "AmericanaBT-Bold", serif;
   --font-support: "LibreBaskerville", serif;
 
+  
+  --breakpoint-md: 55rem; /* ≈ 880px */
+
 }
 
 @font-face {
