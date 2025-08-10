@@ -79,7 +79,7 @@ const testimonials = [
       Lo que dicen nuestros estudiantes
     </h2>
 
-    <div class="relative max-w-100% ">
+    <div class="relative max-w-100%">
       <div class="overflow-hidden rounded-2xl">
         <div
           class="testimonial-carousel flex transition-transform duration-500 ease-in-out"
@@ -128,11 +128,13 @@ const testimonials = [
         </div>
       </div>
 
-        <!-- Flechas de navegación -->
-        <button
+      <!-- Flechas de navegación -->
+      <button
         id="prev-testimonial"
-        class="absolute left-2 sm:left-0 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 text-white rounded-full shadow-lg flex items-center justify-center transition-all focus:ring-2 focus:ring-[var(--color-pink)] "style="background: #711f83e8;"
-      >
+        class="absolute left-2 sm:left-0 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 text-white rounded-full shadow-lg flex items-center justify-center transition-all focus:ring-2 focus:ring-[var(--color-pink)]"
+        style="background: #711f83e8;"
+        aria-label="Anterior testimonio"
+        >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
@@ -150,7 +152,9 @@ const testimonials = [
       </button>
       <button
         id="next-testimonial"
-        class="absolute right-2 sm:right-0 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-12 sm:h-12 text-white rounded-full shadow-lg flex items-center justify-center transition-all focus:ring-2 focus:ring-[var(--color-pink)]"style="background: #711f83e8;"
+        class="absolute right-2 sm:right-0 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-12 sm:h-12 text-white rounded-full shadow-lg flex items-center justify-center transition-all focus:ring-2 focus:ring-[var(--color-pink)]"
+        style="background: #711f83e8;"
+        aria-label="Siguiente testimonio"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -175,6 +179,8 @@ const testimonials = [
             <button
               data-index={index}
               class="indicator w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all duration-300 bg-gray-300 hover:bg-gray-400"
+              aria-hidden="true"
+              tabindex="-1"
             />
           ))
         }
