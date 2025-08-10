@@ -34,8 +34,7 @@ const {title} = Astro.props;
 
     <!-- Google analitycs -->
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XRWPEMT1BB"
-    ></script>
+<!-- s -->
     <!-- <script>
       window.dataLayer = window.dataLayer || [];
       function gtag() {
@@ -47,20 +46,47 @@ const {title} = Astro.props;
     </script> -->
   </head>
   <body class="min-h-screen bg-gradient-page">
-    <!-- 	<body class="min-h-screen bg-gradient-to-b from-custom-yellow/10 via-white to-custom-pink/10 font-sans"> -->
     <slot />
+
+    <!-- Script restaurar scroll -->
+    <script lang="ts">
+      window.addEventListener("beforeunload", () => {
+        localStorage.setItem("scrollPos", window.scrollY.toString());
+      });
+
+      window.addEventListener("load", () => {
+        const scrollPos = localStorage.getItem("scrollPos");
+        if (scrollPos !== null) {
+          window.scrollTo(0, parseInt(scrollPos, 10));
+        }
+      });
+    </script>
+
+    <!-- Google Analytics diferido tras interacción -->
+    <script lang="ts">
+      window.addEventListener('load', () => {
+        const triggerLoad = () => {
+          const script = document.createElement('script');
+          script.src = "https://www.googletagmanager.com/gtag/js?id=G-XRWPEMT1BB";
+          script.async = true;
+          document.head.appendChild(script);
+
+          script.onload = () => {
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-XRWPEMT1BB');
+          };
+
+          window.removeEventListener('scroll', triggerLoad);
+          window.removeEventListener('mousemove', triggerLoad);
+          window.removeEventListener('touchstart', triggerLoad);
+        };
+
+        window.addEventListener('scroll', triggerLoad, { once: true });
+        window.addEventListener('mousemove', triggerLoad, { once: true });
+        window.addEventListener('touchstart', triggerLoad, { once: true });
+      });
+    </script>
   </body>
 </html>
-
-<script lang="ts">
-  window.addEventListener("beforeunload", () => {
-    localStorage.setItem("scrollPos", window.scrollY.toString());
-  });
-
-  window.addEventListener("load", () => {
-    const scrollPos = localStorage.getItem("scrollPos");
-    if (scrollPos !== null) {
-      window.scrollTo(0, parseInt(scrollPos, 10));
-    }
-  });
-</script>
