@@ -54,6 +54,7 @@
     url("/fonts/AmericanaBT-Bold.woff") format("woff");
   font-weight: bold;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -62,6 +63,7 @@
     url("/fonts/AmericanaBT-Roman.woff") format("woff");
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -70,6 +72,7 @@
     url("/fonts/Inter-Regular.woff") format("woff");
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -78,6 +81,7 @@
     url("/fonts/LibreBaskerville-Regular.woff") format("woff");
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 html {
