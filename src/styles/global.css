@@ -132,7 +132,7 @@ font-family: "AmericanaBT", "LibreBaskerville", serif; /* AmericanaBT, si falla 
 
 p {
   font-family: "Inter", sans-serif; /* Usa Inter para texto general */
-  @apply text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl;
+  @apply text-sm sm:text-base md:text-lg  ;
   color: var(--color-text);
 }
   #leyenda{
