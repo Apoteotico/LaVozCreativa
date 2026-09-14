@@ -12,6 +12,9 @@ export default defineConfig({
       }
     }
   },
+  build: {
+    inlineStylesheets: 'always'
+  },
   site: "https://lavozcreativaescuela.com.ar",  // URL completa
   base: "/"  // Subcarpeta en GitHub Pages
 });
